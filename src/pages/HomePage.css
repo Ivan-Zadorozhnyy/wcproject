@@ -1,0 +1,152 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f6f5f3;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #fdfdca;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    font-size: 1.5em;
+    color: #5d4037;
+}
+
+.header .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.header .nav-links a {
+    text-decoration: none;
+    color: transparent;
+    position: relative;
+}
+
+.header .nav-links a:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #5d4037;
+    z-index: -1;
+}
+
+.header .auth-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Main Banner Styles */
+.main-banner {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.main-banner h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #5d4037;
+}
+
+.main-banner img {
+    max-width: 40%;
+}
+
+/* Slogan Section Styles */
+.slogan-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.slogan-section h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.shop-collection-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ffd700;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+}
+
+.shop-collection-btn:hover {
+    background-color: #ffa500;
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background-color: #fdfdca;
+}
+
+.stats .stat p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Product Categories */
+.product-categories {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    gap: 20px;
+}
+
+.product-categories .category img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+/* Products Section */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 5%;
+    gap: 20px;
+}
+
+.products .product {
+    flex-basis: calc(25% - 20px);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.products .product img {
+    width: 100%;
+}
+
+.products .product:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background-color: #fdfdca;
+    padding: 20px 5%;
+    text-align: center;
+}
