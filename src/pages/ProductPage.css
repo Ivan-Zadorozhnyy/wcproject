@@ -60,3 +60,43 @@
 .add-to-cart-btn:hover {
     background-color: #ffcc00;
 }
+
+/* Adding transition and hover effects */
+.product-image, .product-details {
+    transition: transform 0.5s;
+}
+
+.product-image:hover, .product-details:hover {
+    transform: scale(1.03);
+}
+
+/* Animation for the product details */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.product-image {
+    animation: slideInFromLeft 1s forwards;
+}
+
+.product-details {
+    animation: slideInFromRight 1s forwards;
+}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './ProductPage.css';
 
 const ProductPage = () => {
@@ -8,10 +10,15 @@ const ProductPage = () => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
+        AOS.init({
+            offset: 200,
+            duration: 1000,
+            easing: 'ease-in-out',
+        });
+
         const fetchProduct = async () => {
             try {
-                // Make sure this endpoint matches your server's configuration
-                const response = await axios.get('http://localhost:3001/api/products/1');
+                const response = await axios.get(`http://localhost:3001/api/products/${id}`);
                 setProduct(response.data);
             } catch (error) {
                 console.error('Error fetching product data', error);
@@ -27,10 +34,10 @@ const ProductPage = () => {
 
     return (
         <div className="product-page">
-            <div className="product-image">
+            <div className="product-image" data-aos="fade-right">
                 <img src={product.image} alt={product.name} />
             </div>
-            <div className="product-details">
+            <div className="product-details" data-aos="fade-left">
                 <h1>{product.name}</h1>
                 <p>{product.description}</p>
                 <p>Price: ${product.price}</p>

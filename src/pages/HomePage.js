@@ -1,8 +1,10 @@
-import React from 'react';
-import './HomePage.css';  // Ensure this path is correct
+import React, { useState, useEffect } from 'react';
+import './HomePage.css';
 import Header from '../components/HeaderHome';
 import ProductCard from '../components/ProductCard';
 import CountDownTimer from '../components/CountDownTimer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const products = [
     { id: 1, name: 'Lavender Honey', description: 'A sweet and fragrant honey.', image: 'path_to_your_image/honey-sample.jpg', price: '10.00' },
@@ -11,13 +13,21 @@ const products = [
 ];
 
 const HomePage = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: false,
+        });
+    }, []);
+
     return (
         <div className="home-page">
             <Header />
-            <div className="slogan-section">
+            <div className="slogan-section" data-aos="fade-in">
                 <h1>Nature's Sweetest Gift</h1>
                 <button className="shop-collection-btn">Shop Collection</button>
-                <div className="stats">
+                <div className="stats" data-aos="fade-up">
                     <div className="stat"><strong>10K</strong><p>Happy Customer</p></div>
                     <div className="stat"><strong>10</strong><p>Highest Quality Items</p></div>
                     <div className="stat"><strong>30% OFF</strong><p>ALL PRODUCTS</p></div>
@@ -26,7 +36,12 @@ const HomePage = () => {
             </div>
             <div className="products">
                 {products.map(product => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard
+                        key={product.id}
+                        product={product}
+                        data-aos="fade-up"
+                        data-aos-delay={products.indexOf(product) * 100}
+                    />
                 ))}
             </div>
         </div>
