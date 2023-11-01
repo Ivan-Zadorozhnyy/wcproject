@@ -10,7 +10,8 @@ const ProductPage = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`/api/products/:1`);
+                // Make sure this endpoint matches your server's configuration
+                const response = await axios.get('http://localhost:3001/api/products/1');
                 setProduct(response.data);
             } catch (error) {
                 console.error('Error fetching product data', error);
