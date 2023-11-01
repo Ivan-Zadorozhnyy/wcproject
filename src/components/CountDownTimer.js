@@ -25,7 +25,9 @@ const CountDownTimer = () => {
         }, 1000);
 
         return () => clearInterval(intervalId);
-    }, []);
+    }, [startTime]);
+
+
 
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
