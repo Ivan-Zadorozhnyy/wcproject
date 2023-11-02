@@ -19,7 +19,7 @@ const Header = () => {
             <div className="header-auth">
                 <button>Sign Up</button>
                 <button className="cart-btn" onClick={() => navigate('/cart')}>
-                    🛒 Cart ({cart.length})
+                    🛒  ({cart.length})
                 </button>
                 <button>Sign In</button>
             </div>
