@@ -1,8 +1,10 @@
 import './CartPage.css';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useCart } from '../components/CartContext';
 
-const CartPage = ({ cart, removeFromCart, updateQuantity }) => {
+const CartPage = () => {
+    const { cart, removeFromCart, updateQuantity } = useCart();
 
     const calculateTotal = () => {
         if (!cart || !Array.isArray(cart)) return "0.00";
@@ -26,7 +28,7 @@ const CartPage = ({ cart, removeFromCart, updateQuantity }) => {
                                 onChange={e => updateQuantity(item.product?.id || '', Math.max(1, +e.target.value))}
                                 min="1"
                             />
-                            <span>${(item.product?.price || 0 * item.quantity).toFixed(2)}</span>
+                            <span>${((item.product?.price || 0) * item.quantity).toFixed(2)}</span> {/* Fixed multiplication issue here */}
                             <button onClick={() => removeFromCart(item.product?.id || '')} aria-label={`Remove ${item.product?.name || ''} from cart`}>Remove</button>
                         </li>
                     ))}
@@ -46,7 +48,7 @@ CartPage.propTypes = {
             price: PropTypes.number.isRequired,
         }).isRequired,
         quantity: PropTypes.number.isRequired,
-    })),
+    })).isRequired,
     removeFromCart: PropTypes.func.isRequired,
     updateQuantity: PropTypes.func.isRequired,
 };
