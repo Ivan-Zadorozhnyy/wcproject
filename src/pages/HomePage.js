@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard';
 import CountDownTimer from '../components/CountDownTimer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useCart } from '../components/CartContext';
 
 const products = [
     { id: 1, name: 'Lavender Honey', description: 'A sweet and fragrant honey.', image: 'path_to_your_image/honey-sample.jpg', price: '10.00' },
@@ -13,6 +14,8 @@ const products = [
 ];
 
 const HomePage = () => {
+    const { cart } = useCart();
+
     useEffect(() => {
         AOS.init({
             duration: 1000,

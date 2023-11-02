@@ -4,10 +4,12 @@ import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './ProductPage.css';
+import { useCart } from '../components/CartContext';
 
 const ProductPage = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const { addToCart } = useCart(); // Extract addToCart from context
 
     useEffect(() => {
         AOS.init({
@@ -41,7 +43,7 @@ const ProductPage = () => {
                 <h1>{product.name}</h1>
                 <p>{product.description}</p>
                 <p>Price: ${product.price}</p>
-                <button className="add-to-cart-btn">Add to Cart</button>
+                <button className="add-to-cart-btn" onClick={() => addToCart(product)}>Add to Cart</button>
             </div>
         </div>
     );
