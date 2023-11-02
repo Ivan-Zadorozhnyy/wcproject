@@ -14,6 +14,13 @@ const products = [
     { id: 2, name: 'Manuka Honey', description: 'A honey with healing properties.', image: 'path_to_your_image/honey-sample.jpg', price: 19.99 },
 ];
 
+app.use((err, req, res, next) => {
+    if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+        return res.status(400).send({ error: 'Bad JSON' });
+    }
+    next();
+});
+
 app.get('/api/products', (req, res) => {
     console.log('GET /api/products endpoint hit');
     res.json(products);
@@ -22,7 +29,7 @@ app.get('/api/products', (req, res) => {
 app.get('/api/products/:id', (req, res) => {
     const product = products.find(p => p.id === parseInt(req.params.id));
     if (!product) {
-        return res.status(404).send('The product with the given ID was not found.');
+        return res.status(404).send({ error: 'The product with the given ID was not found.' });
     }
     res.json(product);
 });

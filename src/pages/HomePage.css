@@ -163,3 +163,19 @@ body {
     padding: 20px 5%;
     text-align: center;
 }
+
+.cart-btn {
+    background-color: #f8c210;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* to create space between it and the Sign Up button */
+}
+
+.cart-btn:hover {
+    background-color: #f5b408;
+}

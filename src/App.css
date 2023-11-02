@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.cart-btn {
+  background-color: #f8c210;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.cart-btn:hover {
+  background-color: #f5b408;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -8,8 +8,9 @@ import { useCart } from '../components/CartContext';
 
 const ProductPage = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [product, setProduct] = useState(null);
-    const { addToCart } = useCart(); // Extract addToCart from context
+    const { addToCart } = useCart();
 
     useEffect(() => {
         AOS.init({
@@ -34,6 +35,11 @@ const ProductPage = () => {
         return <div>Loading...</div>;
     }
 
+    const handleAddToCart = () => {
+        addToCart(product, 1);
+        alert(`${product.name} has been added to cart.`);
+    };
+
     return (
         <div className="product-page">
             <div className="product-image" data-aos="fade-right">
@@ -43,7 +49,10 @@ const ProductPage = () => {
                 <h1>{product.name}</h1>
                 <p>{product.description}</p>
                 <p>Price: ${product.price}</p>
-                <button className="add-to-cart-btn" onClick={() => addToCart(product)}>Add to Cart</button>
+                <button className="add-to-cart-btn" onClick={handleAddToCart}>Add to Cart</button>
+                <button className="cart-btn" onClick={() => navigate('/cart')}>
+                    🛒 Go to Cart
+                </button>
             </div>
         </div>
     );
