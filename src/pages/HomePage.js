@@ -8,9 +8,9 @@ import 'aos/dist/aos.css';
 import { useCart } from '../components/CartContext';
 
 const products = [
-    { id: 1, name: 'Lavender Honey', description: 'A sweet and fragrant honey.', image: 'path_to_your_image/honey-sample.jpg', price: '10.00' },
-    { id: 2, name: 'Manuka Honey', description: 'A honey with healing properties.', image: 'path_to_your_image/honey-sample.jpg', price: '15.00' },
-    // Add more products
+    { id: 1, name: 'Lavender Honey', description: 'A fragrant honey with a delicate floral note, renowned for its soothing and relaxing qualities.', image: 'https://ashevillebeecharmer.com/wp-content/uploads/lavender-infused-honey.jpg', price: '24.99' },
+    { id: 2, name: 'Manuka Honey', description: 'A unique honey with potent antibacterial properties, sourced from New Zealands native Manuka tree.', image: 'https://melitahoneyfarm.com.au/cdn/shop/products/manuka-propolis-500_1445x.jpg?v=1685844573', price: '19.99' },
+    { id: 3, name: 'Buckwheat Honey', description: 'A robust, dark-hued honey with a molasses-like flavor, known for its antioxidants and immune-boosting properties.', image: 'https://ashevillebeecharmer.com/wp-content/uploads/buckwheat-honey-16oz.jpg', price: '14.99' },
 ];
 
 const HomePage = () => {

@@ -1,6 +1,6 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Updated the font */
-    background-color: #FFF9C4; /* Updated color to Pale Yellow */
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFF9C4;
     margin: 0;
     overflow-x: hidden;
 }
@@ -173,7 +173,7 @@ body {
     font-size: 16px;
     padding: 10px 20px;
     transition: background-color 0.3s ease;
-    margin-left: 20px; /* to create space between it and the Sign Up button */
+    margin-left: 20px;
 }
 
 .cart-btn:hover {
